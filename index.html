@@ -6,23 +6,26 @@
 
 <body>
 
-    <div class="container">
-        <div id="fireCanvas"></div>
 
-        <div class="buttons">
-            <div class="fireControl">
-                <button onclick="decreaseFire()"> - </button>
-                <button onclick="destroyFire()">min fire</button>
-                <button onclick="maxFire()">max fire</button>
-                <button onclick="growFire()">+</button>
-            </div>
+    <div class="buttons">
+        <h1 class="title">Doom Fire Effect</h1>
+        <div class="fireControl">
+            <button onclick="decreaseFire()"> - </button>
+            <button onclick="destroyFire()">min fire</button>
+            <button onclick="maxFire()">max fire</button>
+            <button onclick="growFire()">+</button>
+        </div>
 
-            <div class="debug">
-                <button onclick="debugMode()">Debug mode</button>
-            </div>
-
+        <div class="debug">
+            <button onclick="debugMode()">Debug mode</button>
         </div>
     </div>
+    <div class="container">
+        <div id="fireCanvas"></div>
+    </div>
+
+
+
 
     <script src="fire.js"></script>
 </body>

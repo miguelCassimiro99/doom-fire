@@ -91,9 +91,13 @@ function renderFire() {
             const fireIntensity = firePixelArray[pixelIndex]
 
             if (debug === true) {
+                const color = fireColorsPalette[fireIntensity]
+                const colorString = `${color.r},${color.g},${color.b}`
                 html += '<td>'
                 html += `<div class="pixel-index">${pixelIndex}</div>`
+                html += `<div style="color: rgb(${colorString})">`
                 html += fireIntensity
+                html += `</div>`
                 html += '</td>'
             } else {
                 const color = fireColorsPalette[fireIntensity]
@@ -115,17 +119,20 @@ function renderFire() {
 
 function destroyFire() {
 
-    for (let column = 0; column < fireHeight; column++) {
+    for (let column = 0; column <= fireHeight; column++) {
         const overflowPixelIndex = fireWidth * fireHeight
         const pixelIndex = (overflowPixelIndex - fireWidth) + column
 
         firePixelArray[pixelIndex] = 0
+        if (firePixelArray[pixelIndex] > 0) {
+            firePixelArray[pixelIndex] = 0
+        }
     }
 
 }
 
 function decreaseFire() {
-    for (let column = 0; column < fireHeight; column++) {
+    for (let column = 0; column <= fireHeight; column++) {
         const overflowPixelIndex = fireHeight * fireWidth
         const pixelIndex = (overflowPixelIndex - fireWidth) + column
 
@@ -142,7 +149,7 @@ function decreaseFire() {
 }
 
 function maxFire() {
-    for (let column = 0; column < fireHeight; column++) {
+    for (let column = 0; column <= fireHeight; column++) {
         const overflowPixelIndex = fireWidth * fireHeight
         const pixelIndex = (overflowPixelIndex - fireWidth) + column
 
